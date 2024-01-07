@@ -2,29 +2,29 @@ export class Login {
     navigate() {
         cy.visit("https://www.edu.goit.global/account/login");
       }
-     // Тест має перевіряти наявність заголовка на сайті, чи він видимий, чи є в ньому контент Login.  
+     // The test should check the presence of the header on the site, whether it is visible, whether it contains Login content.  
     validateLoginTitle() {
         cy.get(".next-10stgr7 > .next-c1vj7d").should("be.visible");
         cy.get(".next-10stgr7 > .next-c1vj7d").should("have.text", "Login");
       }
-      // Тест має перевіряти наявність поля для введення пошти і чи це поле видиме на сторінці.
-      // Тест має перевіряти наявність поля для введення пароля і чи є це поле видиме на сторінці.
+      // The test should check if there is a field for entering email and if this field is visible on the page.
+      // The test should check if there is a field for entering a password and if this field is visible on the page.
     validateInputs()   {
         cy.get("#user_email").should("be.visible");
         cy.get("#user_password").should("be.visible");
       }
-      // Тест має перевіряти наявність кнопки з контентом Log in і чи видима вона на екрані. 
+      // The test should check the presence of the button with the content Log in and whether it is visible on the screen.
     validateButton() {
         cy.get(".eckniwg2").should("be.visible");
       }
-        // Знаходимо інпут з поштою та вводимо email
-        // Знаходимо інпут з паролем та вводимо пароль
-        // Здійснюємо логінізацію
+        // Find the input with email and enter email
+        // Find the input with the password and enter the password
+        // Log in
     uzerAutoization() {
             cy.logIn("user888@gmail.com", "1234567890");
       }
-      //  Тест має перевірити наявність на сторінці фрази  I can't remember the password
-      //  і чи видима вона на екрані
+      //  The test should check the presence of the phrase "I can't remember the password" on the page
+      //  and whether it is visible on the screen
     validatePasswordLink() {
         cy.get(".next-1f1fv1i").should("be.visible");
         cy.get(".next-1f1fv1i").should("have.text", "I can't remember the password");
